@@ -4,13 +4,21 @@
 angular.module('myFirstAss', [])
 
 .controller('SplitController', function ($scope) {
-  $scope.name = "hi,hello,,";
+  $scope.name = "";
   $scope.splitSent = function () {
     var sent = $scope.name;
     var words = sent.split(",");
-    $scope.total = words.filter(Boolean).length;
+    var total = words.filter(Boolean).length;
         //  words.foreach(myFunction)
-    
+    if(total==0)
+    $scope.message = "Please enter data first";
+    else if (total<=3) {
+    $scope.message = "Enjoy";
+
+    }
+    else {
+      $scope.message = "Too much!!!!";
+    }
   };
 });
 
